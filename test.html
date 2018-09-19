@@ -1,0 +1,2738 @@
+<!DOCTYPE html>
+
+<html lang="en_US">
+
+<head>
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+  <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+  <META NAME="verify-v1" CONTENT="M5q4CxMVJyf1WE5UwVmHfV8q3LK1vh/3qmo894V0Pqg=">
+  <script type="text/javascript">
+    (window.NREUM || (NREUM = {})).loader_config = {
+      xpid: "VQQPUFdVCRADVVVXAwABVA=="
+    };
+    window.NREUM || (NREUM = {}), __nr_require = function(t, n, e) {
+      function r(e) {
+        if (!n[e]) {
+          var o = n[e] = {
+            exports: {}
+          };
+          t[e][0].call(o.exports, function(n) {
+            var o = t[e][1][n];
+            return r(o || n)
+          }, o, o.exports)
+        }
+        return n[e].exports
+      }
+      if ("function" == typeof __nr_require) return __nr_require;
+      for (var o = 0; o < e.length; o++) r(e[o]);
+      return r
+    }({
+      1: [function(t, n, e) {
+        function r(t) {
+          try {
+            s.console && console.log(t)
+          } catch (n) {}
+        }
+        var o, i = t("ee"),
+          a = t(15),
+          s = {};
+        try {
+          o = localStorage.getItem("__nr_flags").split(","), console && "function" == typeof console.log && (s.console = !0, o.indexOf("dev") !== -1 && (s.dev = !0), o.indexOf("nr_dev") !== -1 && (s.nrDev = !0))
+        } catch (c) {}
+        s.nrDev && i.on("internal-error", function(t) {
+          r(t.stack)
+        }), s.dev && i.on("fn-err", function(t, n, e) {
+          r(e.stack)
+        }), s.dev && (r("NR AGENT IN DEVELOPMENT MODE"), r("flags: " + a(s, function(t, n) {
+          return t
+        }).join(", ")))
+      }, {}],
+      2: [function(t, n, e) {
+        function r(t, n, e, r, s) {
+          try {
+            p ? p -= 1 : o(s || new UncaughtException(t, n, e), !0)
+          } catch (f) {
+            try {
+              i("ierr", [f, c.now(), !0])
+            } catch (d) {}
+          }
+          return "function" == typeof u && u.apply(this, a(arguments))
+        }
+
+        function UncaughtException(t, n, e) {
+          this.message = t || "Uncaught error with no additional information", this.sourceURL = n, this.line = e
+        }
+
+        function o(t, n) {
+          var e = n ? null : c.now();
+          i("err", [t, e])
+        }
+        var i = t("handle"),
+          a = t(16),
+          s = t("ee"),
+          c = t("loader"),
+          f = t("gos"),
+          u = window.onerror,
+          d = !1,
+          l = "nr@seenError",
+          p = 0;
+        c.features.err = !0, t(1), window.onerror = r;
+        try {
+          throw new Error
+        } catch (h) {
+          "stack" in h && (t(8), t(7), "addEventListener" in window && t(5), c.xhrWrappable && t(9), d = !0)
+        }
+        s.on("fn-start", function(t, n, e) {
+          d && (p += 1)
+        }), s.on("fn-err", function(t, n, e) {
+          d && !e[l] && (f(e, l, function() {
+            return !0
+          }), this.thrown = !0, o(e))
+        }), s.on("fn-end", function() {
+          d && !this.thrown && p > 0 && (p -= 1)
+        }), s.on("internal-error", function(t) {
+          i("ierr", [t, c.now(), !0])
+        })
+      }, {}],
+      3: [function(t, n, e) {
+        t("loader").features.ins = !0
+      }, {}],
+      4: [function(t, n, e) {
+        function r(t) {}
+        if (window.performance && window.performance.timing && window.performance.getEntriesByType) {
+          var o = t("ee"),
+            i = t("handle"),
+            a = t(8),
+            s = t(7),
+            c = "learResourceTimings",
+            f = "addEventListener",
+            u = "resourcetimingbufferfull",
+            d = "bstResource",
+            l = "resource",
+            p = "-start",
+            h = "-end",
+            m = "fn" + p,
+            w = "fn" + h,
+            v = "bstTimer",
+            y = "pushState",
+            g = t("loader");
+          g.features.stn = !0, t(6);
+          var b = NREUM.o.EV;
+          o.on(m, function(t, n) {
+            var e = t[0];
+            e instanceof b && (this.bstStart = g.now())
+          }), o.on(w, function(t, n) {
+            var e = t[0];
+            e instanceof b && i("bst", [e, n, this.bstStart, g.now()])
+          }), a.on(m, function(t, n, e) {
+            this.bstStart = g.now(), this.bstType = e
+          }), a.on(w, function(t, n) {
+            i(v, [n, this.bstStart, g.now(), this.bstType])
+          }), s.on(m, function() {
+            this.bstStart = g.now()
+          }), s.on(w, function(t, n) {
+            i(v, [n, this.bstStart, g.now(), "requestAnimationFrame"])
+          }), o.on(y + p, function(t) {
+            this.time = g.now(), this.startPath = location.pathname + location.hash
+          }), o.on(y + h, function(t) {
+            i("bstHist", [location.pathname + location.hash, this.startPath, this.time])
+          }), f in window.performance && (window.performance["c" + c] ? window.performance[f](u, function(t) {
+            i(d, [window.performance.getEntriesByType(l)]), window.performance["c" + c]()
+          }, !1) : window.performance[f]("webkit" + u, function(t) {
+            i(d, [window.performance.getEntriesByType(l)]), window.performance["webkitC" + c]()
+          }, !1)), document[f]("scroll", r, {
+            passive: !0
+          }), document[f]("keypress", r, !1), document[f]("click", r, !1)
+        }
+      }, {}],
+      5: [function(t, n, e) {
+        function r(t) {
+          for (var n = t; n && !n.hasOwnProperty(u);) n = Object.getPrototypeOf(n);
+          n && o(n)
+        }
+
+        function o(t) {
+          s.inPlace(t, [u, d], "-", i)
+        }
+
+        function i(t, n) {
+          return t[1]
+        }
+        var a = t("ee").get("events"),
+          s = t(18)(a, !0),
+          c = t("gos"),
+          f = XMLHttpRequest,
+          u = "addEventListener",
+          d = "removeEventListener";
+        n.exports = a, "getPrototypeOf" in Object ? (r(document), r(window), r(f.prototype)) : f.prototype.hasOwnProperty(u) && (o(window), o(f.prototype)), a.on(u + "-start", function(t, n) {
+          var e = t[1],
+            r = c(e, "nr@wrapped", function() {
+              function t() {
+                if ("function" == typeof e.handleEvent) return e.handleEvent.apply(e, arguments)
+              }
+              var n = {
+                object: t,
+                "function": e
+              }[typeof e];
+              return n ? s(n, "fn-", null, n.name || "anonymous") : e
+            });
+          this.wrapped = t[1] = r
+        }), a.on(d + "-start", function(t) {
+          t[1] = this.wrapped || t[1]
+        })
+      }, {}],
+      6: [function(t, n, e) {
+        var r = t("ee").get("history"),
+          o = t(18)(r);
+        n.exports = r, o.inPlace(window.history, ["pushState", "replaceState"], "-")
+      }, {}],
+      7: [function(t, n, e) {
+        var r = t("ee").get("raf"),
+          o = t(18)(r),
+          i = "equestAnimationFrame";
+        n.exports = r, o.inPlace(window, ["r" + i, "mozR" + i, "webkitR" + i, "msR" + i], "raf-"), r.on("raf-start", function(t) {
+          t[0] = o(t[0], "fn-")
+        })
+      }, {}],
+      8: [function(t, n, e) {
+        function r(t, n, e) {
+          t[0] = a(t[0], "fn-", null, e)
+        }
+
+        function o(t, n, e) {
+          this.method = e, this.timerDuration = isNaN(t[1]) ? 0 : +t[1], t[0] = a(t[0], "fn-", this, e)
+        }
+        var i = t("ee").get("timer"),
+          a = t(18)(i),
+          s = "setTimeout",
+          c = "setInterval",
+          f = "clearTimeout",
+          u = "-start",
+          d = "-";
+        n.exports = i, a.inPlace(window, [s, "setImmediate"], s + d), a.inPlace(window, [c], c + d), a.inPlace(window, [f, "clearImmediate"], f + d), i.on(c + u, r), i.on(s + u, o)
+      }, {}],
+      9: [function(t, n, e) {
+        function r(t, n) {
+          d.inPlace(n, ["onreadystatechange"], "fn-", s)
+        }
+
+        function o() {
+          var t = this,
+            n = u.context(t);
+          t.readyState > 3 && !n.resolved && (n.resolved = !0, u.emit("xhr-resolved", [], t)), d.inPlace(t, y, "fn-", s)
+        }
+
+        function i(t) {
+          g.push(t), h && (x ? x.then(a) : w ? w(a) : (E = -E, O.data = E))
+        }
+
+        function a() {
+          for (var t = 0; t < g.length; t++) r([], g[t]);
+          g.length && (g = [])
+        }
+
+        function s(t, n) {
+          return n
+        }
+
+        function c(t, n) {
+          for (var e in t) n[e] = t[e];
+          return n
+        }
+        t(5);
+        var f = t("ee"),
+          u = f.get("xhr"),
+          d = t(18)(u),
+          l = NREUM.o,
+          p = l.XHR,
+          h = l.MO,
+          m = l.PR,
+          w = l.SI,
+          v = "readystatechange",
+          y = ["onload", "onerror", "onabort", "onloadstart", "onloadend", "onprogress", "ontimeout"],
+          g = [];
+        n.exports = u;
+        var b = window.XMLHttpRequest = function(t) {
+          var n = new p(t);
+          try {
+            u.emit("new-xhr", [n], n), n.addEventListener(v, o, !1)
+          } catch (e) {
+            try {
+              u.emit("internal-error", [e])
+            } catch (r) {}
+          }
+          return n
+        };
+        if (c(p, b), b.prototype = p.prototype, d.inPlace(b.prototype, ["open", "send"], "-xhr-", s), u.on("send-xhr-start", function(t, n) {
+            r(t, n), i(n)
+          }), u.on("open-xhr-start", r), h) {
+          var x = m && m.resolve();
+          if (!w && !m) {
+            var E = 1,
+              O = document.createTextNode(E);
+            new h(a).observe(O, {
+              characterData: !0
+            })
+          }
+        } else f.on("fn-end", function(t) {
+          t[0] && t[0].type === v || a()
+        })
+      }, {}],
+      10: [function(t, n, e) {
+        function r(t) {
+          var n = this.params,
+            e = this.metrics;
+          if (!this.ended) {
+            this.ended = !0;
+            for (var r = 0; r < d; r++) t.removeEventListener(u[r], this.listener, !1);
+            if (!n.aborted) {
+              if (e.duration = a.now() - this.startTime, 4 === t.readyState) {
+                n.status = t.status;
+                var i = o(t, this.lastSize);
+                if (i && (e.rxSize = i), this.sameOrigin) {
+                  var c = t.getResponseHeader("X-NewRelic-App-Data");
+                  c && (n.cat = c.split(", ").pop())
+                }
+              } else n.status = 0;
+              e.cbTime = this.cbTime, f.emit("xhr-done", [t], t), s("xhr", [n, e, this.startTime])
+            }
+          }
+        }
+
+        function o(t, n) {
+          var e = t.responseType;
+          if ("json" === e && null !== n) return n;
+          var r = "arraybuffer" === e || "blob" === e || "json" === e ? t.response : t.responseText;
+          return h(r)
+        }
+
+        function i(t, n) {
+          var e = c(n),
+            r = t.params;
+          r.host = e.hostname + ":" + e.port, r.pathname = e.pathname, t.sameOrigin = e.sameOrigin
+        }
+        var a = t("loader");
+        if (a.xhrWrappable) {
+          var s = t("handle"),
+            c = t(11),
+            f = t("ee"),
+            u = ["load", "error", "abort", "timeout"],
+            d = u.length,
+            l = t("id"),
+            p = t(14),
+            h = t(13),
+            m = window.XMLHttpRequest;
+          a.features.xhr = !0, t(9), f.on("new-xhr", function(t) {
+            var n = this;
+            n.totalCbs = 0, n.called = 0, n.cbTime = 0, n.end = r, n.ended = !1, n.xhrGuids = {}, n.lastSize = null, p && (p > 34 || p < 10) || window.opera || t.addEventListener("progress", function(t) {
+              n.lastSize = t.loaded
+            }, !1)
+          }), f.on("open-xhr-start", function(t) {
+            this.params = {
+              method: t[0]
+            }, i(this, t[1]), this.metrics = {}
+          }), f.on("open-xhr-end", function(t, n) {
+            "loader_config" in NREUM && "xpid" in NREUM.loader_config && this.sameOrigin && n.setRequestHeader("X-NewRelic-ID", NREUM.loader_config.xpid)
+          }), f.on("send-xhr-start", function(t, n) {
+            var e = this.metrics,
+              r = t[0],
+              o = this;
+            if (e && r) {
+              var i = h(r);
+              i && (e.txSize = i)
+            }
+            this.startTime = a.now(), this.listener = function(t) {
+              try {
+                "abort" === t.type && (o.params.aborted = !0), ("load" !== t.type || o.called === o.totalCbs && (o.onloadCalled || "function" != typeof n.onload)) && o.end(n)
+              } catch (e) {
+                try {
+                  f.emit("internal-error", [e])
+                } catch (r) {}
+              }
+            };
+            for (var s = 0; s < d; s++) n.addEventListener(u[s], this.listener, !1)
+          }), f.on("xhr-cb-time", function(t, n, e) {
+            this.cbTime += t, n ? this.onloadCalled = !0 : this.called += 1, this.called !== this.totalCbs || !this.onloadCalled && "function" == typeof e.onload || this.end(e)
+          }), f.on("xhr-load-added", function(t, n) {
+            var e = "" + l(t) + !!n;
+            this.xhrGuids && !this.xhrGuids[e] && (this.xhrGuids[e] = !0, this.totalCbs += 1)
+          }), f.on("xhr-load-removed", function(t, n) {
+            var e = "" + l(t) + !!n;
+            this.xhrGuids && this.xhrGuids[e] && (delete this.xhrGuids[e], this.totalCbs -= 1)
+          }), f.on("addEventListener-end", function(t, n) {
+            n instanceof m && "load" === t[0] && f.emit("xhr-load-added", [t[1], t[2]], n)
+          }), f.on("removeEventListener-end", function(t, n) {
+            n instanceof m && "load" === t[0] && f.emit("xhr-load-removed", [t[1], t[2]], n)
+          }), f.on("fn-start", function(t, n, e) {
+            n instanceof m && ("onload" === e && (this.onload = !0), ("load" === (t[0] && t[0].type) || this.onload) && (this.xhrCbStart = a.now()))
+          }), f.on("fn-end", function(t, n) {
+            this.xhrCbStart && f.emit("xhr-cb-time", [a.now() - this.xhrCbStart, this.onload, n], n)
+          })
+        }
+      }, {}],
+      11: [function(t, n, e) {
+        n.exports = function(t) {
+          var n = document.createElement("a"),
+            e = window.location,
+            r = {};
+          n.href = t, r.port = n.port;
+          var o = n.href.split("://");
+          !r.port && o[1] && (r.port = o[1].split("/")[0].split("@").pop().split(":")[1]), r.port && "0" !== r.port || (r.port = "https" === o[0] ? "443" : "80"), r.hostname = n.hostname || e.hostname, r.pathname = n.pathname, r.protocol =
+            o[0], "/" !== r.pathname.charAt(0) && (r.pathname = "/" + r.pathname);
+          var i = !n.protocol || ":" === n.protocol || n.protocol === e.protocol,
+            a = n.hostname === document.domain && n.port === e.port;
+          return r.sameOrigin = i && (!n.hostname || a), r
+        }
+      }, {}],
+      12: [function(t, n, e) {
+        function r() {}
+
+        function o(t, n, e) {
+          return function() {
+            return i(t, [f.now()].concat(s(arguments)), n ? null : this, e), n ? void 0 : this
+          }
+        }
+        var i = t("handle"),
+          a = t(15),
+          s = t(16),
+          c = t("ee").get("tracer"),
+          f = t("loader"),
+          u = NREUM;
+        "undefined" == typeof window.newrelic && (newrelic = u);
+        var d = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"],
+          l = "api-",
+          p = l + "ixn-";
+        a(d, function(t, n) {
+          u[n] = o(l + n, !0, "api")
+        }), u.addPageAction = o(l + "addPageAction", !0), u.setCurrentRouteName = o(l + "routeName", !0), n.exports = newrelic, u.interaction = function() {
+          return (new r).get()
+        };
+        var h = r.prototype = {
+          createTracer: function(t, n) {
+            var e = {},
+              r = this,
+              o = "function" == typeof n;
+            return i(p + "tracer", [f.now(), t, e], r),
+              function() {
+                if (c.emit((o ? "" : "no-") + "fn-start", [f.now(), r, o], e), o) try {
+                  return n.apply(this, arguments)
+                } catch (t) {
+                  throw c.emit("fn-err", [arguments, this, t], e), t
+                } finally {
+                  c.emit("fn-end", [f.now()], e)
+                }
+              }
+          }
+        };
+        a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function(t, n) {
+          h[n] = o(p + n)
+        }), newrelic.noticeError = function(t) {
+          "string" == typeof t && (t = new Error(t)), i("err", [t, f.now()])
+        }
+      }, {}],
+      13: [function(t, n, e) {
+        n.exports = function(t) {
+          if ("string" == typeof t && t.length) return t.length;
+          if ("object" == typeof t) {
+            if ("undefined" != typeof ArrayBuffer && t instanceof ArrayBuffer && t.byteLength) return t.byteLength;
+            if ("undefined" != typeof Blob && t instanceof Blob && t.size) return t.size;
+            if (!("undefined" != typeof FormData && t instanceof FormData)) try {
+              return JSON.stringify(t).length
+            } catch (n) {
+              return
+            }
+          }
+        }
+      }, {}],
+      14: [function(t, n, e) {
+        var r = 0,
+          o = navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);
+        o && (r = +o[1]), n.exports = r
+      }, {}],
+      15: [function(t, n, e) {
+        function r(t, n) {
+          var e = [],
+            r = "",
+            i = 0;
+          for (r in t) o.call(t, r) && (e[i] = n(r, t[r]), i += 1);
+          return e
+        }
+        var o = Object.prototype.hasOwnProperty;
+        n.exports = r
+      }, {}],
+      16: [function(t, n, e) {
+        function r(t, n, e) {
+          n || (n = 0), "undefined" == typeof e && (e = t ? t.length : 0);
+          for (var r = -1, o = e - n || 0, i = Array(o < 0 ? 0 : o); ++r < o;) i[r] = t[n + r];
+          return i
+        }
+        n.exports = r
+      }, {}],
+      17: [function(t, n, e) {
+        n.exports = {
+          exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart
+        }
+      }, {}],
+      18: [function(t, n, e) {
+        function r(t) {
+          return !(t && t instanceof Function && t.apply && !t[a])
+        }
+        var o = t("ee"),
+          i = t(16),
+          a = "nr@original",
+          s = Object.prototype.hasOwnProperty,
+          c = !1;
+        n.exports = function(t, n) {
+          function e(t, n, e, o) {
+            function nrWrapper() {
+              var r, a, s, c;
+              try {
+                a = this, r = i(arguments), s = "function" == typeof e ? e(r, a) : e || {}
+              } catch (f) {
+                l([f, "", [r, a, o], s])
+              }
+              u(n + "start", [r, a, o], s);
+              try {
+                return c = t.apply(a, r)
+              } catch (d) {
+                throw u(n + "err", [r, a, d], s), d
+              } finally {
+                u(n + "end", [r, a, c], s)
+              }
+            }
+            return r(t) ? t : (n || (n = ""), nrWrapper[a] = t, d(t, nrWrapper), nrWrapper)
+          }
+
+          function f(t, n, o, i) {
+            o || (o = "");
+            var a, s, c, f = "-" === o.charAt(0);
+            for (c = 0; c < n.length; c++) s = n[c], a = t[s], r(a) || (t[s] = e(a, f ? s + o : o, i, s))
+          }
+
+          function u(e, r, o) {
+            if (!c || n) {
+              var i = c;
+              c = !0;
+              try {
+                t.emit(e, r, o, n)
+              } catch (a) {
+                l([a, e, r, o])
+              }
+              c = i
+            }
+          }
+
+          function d(t, n) {
+            if (Object.defineProperty && Object.keys) try {
+              var e = Object.keys(t);
+              return e.forEach(function(e) {
+                Object.defineProperty(n, e, {
+                  get: function() {
+                    return t[e]
+                  },
+                  set: function(n) {
+                    return t[e] = n, n
+                  }
+                })
+              }), n
+            } catch (r) {
+              l([r])
+            }
+            for (var o in t) s.call(t, o) && (n[o] = t[o]);
+            return n
+          }
+
+          function l(n) {
+            try {
+              t.emit("internal-error", n)
+            } catch (e) {}
+          }
+          return t || (t = o), e.inPlace = f, e.flag = a, e
+        }
+      }, {}],
+      ee: [function(t, n, e) {
+        function r() {}
+
+        function o(t) {
+          function n(t) {
+            return t && t instanceof r ? t : t ? c(t, s, i) : i()
+          }
+
+          function e(e, r, o, i) {
+            if (!l.aborted || i) {
+              t && t(e, r, o);
+              for (var a = n(o), s = h(e), c = s.length, f = 0; f < c; f++) s[f].apply(a, r);
+              var d = u[y[e]];
+              return d && d.push([g, e, r, a]), a
+            }
+          }
+
+          function p(t, n) {
+            v[t] = h(t).concat(n)
+          }
+
+          function h(t) {
+            return v[t] || []
+          }
+
+          function m(t) {
+            return d[t] = d[t] || o(e)
+          }
+
+          function w(t, n) {
+            f(t, function(t, e) {
+              n = n || "feature", y[e] = n, n in u || (u[n] = [])
+            })
+          }
+          var v = {},
+            y = {},
+            g = {
+              on: p,
+              emit: e,
+              get: m,
+              listeners: h,
+              context: n,
+              buffer: w,
+              abort: a,
+              aborted: !1
+            };
+          return g
+        }
+
+        function i() {
+          return new r
+        }
+
+        function a() {
+          (u.api || u.feature) && (l.aborted = !0, u = l.backlog = {})
+        }
+        var s = "nr@context",
+          c = t("gos"),
+          f = t(15),
+          u = {},
+          d = {},
+          l = n.exports = o();
+        l.backlog = u
+      }, {}],
+      gos: [function(t, n, e) {
+        function r(t, n, e) {
+          if (o.call(t, n)) return t[n];
+          var r = e();
+          if (Object.defineProperty && Object.keys) try {
+            return Object.defineProperty(t, n, {
+              value: r,
+              writable: !0,
+              enumerable: !1
+            }), r
+          } catch (i) {}
+          return t[n] = r, r
+        }
+        var o = Object.prototype.hasOwnProperty;
+        n.exports = r
+      }, {}],
+      handle: [function(t, n, e) {
+        function r(t, n, e, r) {
+          o.buffer([t], r), o.emit(t, n, e)
+        }
+        var o = t("ee").get("handle");
+        n.exports = r, r.ee = o
+      }, {}],
+      id: [function(t, n, e) {
+        function r(t) {
+          var n = typeof t;
+          return !t || "object" !== n && "function" !== n ? -1 : t === window ? 0 : a(t, i, function() {
+            return o++
+          })
+        }
+        var o = 1,
+          i = "nr@id",
+          a = t("gos");
+        n.exports = r
+      }, {}],
+      loader: [function(t, n, e) {
+        function r() {
+          if (!x++) {
+            var t = b.info = NREUM.info,
+              n = l.getElementsByTagName("script")[0];
+            if (setTimeout(u.abort, 3e4), !(t && t.licenseKey && t.applicationID && n)) return u.abort();
+            f(y, function(n, e) {
+              t[n] || (t[n] = e)
+            }), c("mark", ["onload", a() + b.offset], null, "api");
+            var e = l.createElement("script");
+            e.src = "https://" + t.agent, n.parentNode.insertBefore(e, n)
+          }
+        }
+
+        function o() {
+          "complete" === l.readyState && i()
+        }
+
+        function i() {
+          c("mark", ["domContent", a() + b.offset], null, "api")
+        }
+
+        function a() {
+          return E.exists && performance.now ? Math.round(performance.now()) : (s = Math.max((new Date).getTime(), s)) - b.offset
+        }
+        var s = (new Date).getTime(),
+          c = t("handle"),
+          f = t(15),
+          u = t("ee"),
+          d = window,
+          l = d.document,
+          p = "addEventListener",
+          h = "attachEvent",
+          m = d.XMLHttpRequest,
+          w = m && m.prototype;
+        NREUM.o = {
+          ST: setTimeout,
+          SI: d.setImmediate,
+          CT: clearTimeout,
+          XHR: m,
+          REQ: d.Request,
+          EV: d.Event,
+          PR: d.Promise,
+          MO: d.MutationObserver
+        };
+        var v = "" + location,
+          y = {
+            beacon: "bam.nr-data.net",
+            errorBeacon: "bam.nr-data.net",
+            agent: "js-agent.newrelic.com/nr-1071.min.js"
+          },
+          g = m && w && w[p] && !/CriOS/.test(navigator.userAgent),
+          b = n.exports = {
+            offset: s,
+            now: a,
+            origin: v,
+            features: {},
+            xhrWrappable: g
+          };
+        t(12), l[p] ? (l[p]("DOMContentLoaded", i, !1), d[p]("load", r, !1)) : (l[h]("onreadystatechange", o), d[h]("onload", r)), c("mark", ["firstbyte", s], null, "api");
+        var x = 0,
+          E = t(17)
+      }, {}]
+    }, {}, ["loader", 2, 10, 4, 3]);
+  </script>
+  <script type="text/javascript" src="https://cdn.optimizely.com/js/277918141.js"></script>
+  <style type="text/css">
+    .jsEnabled {
+      display: none;
+    }
+  </style>
+  <META NAME="robots" CONTENT="NOARCHIVE, NOFOLLOW, NOINDEX">
+  <META NAME="description" CONTENT="Elsevier's Scopus, the largest abstract and citation database of peer-reviewed literature. Search and access research from the science, technology, medicine, social sciences and arts and humanities fields.">
+  <link rel="SHORTCUT ICON" href="/static/proteus-images/favicon.ico?ver=1.0">
+  <!-- TODO: Post ID+ migration clean-up: remove below block of code -->
+  <script type="text/javascript" src="https://acw.elsevier.com/SSOCore/jawr_loader.js"></script>
+  <script type="text/javascript" src="/gzip_N806072365/bundles/masterjquery.js"></script>
+  <script type="text/javascript">
+    JAWR.loader.script('/bundles/jcars.js');
+    JAWR.loader.style('/bundles/jcars.css', 'all');
+  </script>
+  <script language="javascript" type="text/javascript">
+    window.$ = window.jQuery;
+  </script>
+  <script type="text/javascript" src="/gzip_N1606155294/bundles/remoteAccMsg.js"></script>
+  <script>
+    var feMetricUrl = new Object();
+    feMetricUrl = 'https://els-eum.elsst.com';
+  </script>
+  <link rel="stylesheet" type="text/css" media="all" href="/gzip_1408661771/bundles/ScopusMasterLayout.css" />
+  <script type="text/javascript" src="/gzip_N1623091583/bundles/AuthorFreeResultsTopMaster.js"></script>
+  <script src="https://b2btagmgr.azalead.com/tag?az=aWRTdWJzY3JpYmVyPTIyMjYmaWRTaXRlPTIzMTYmb3JpZ2luPXd3dy5lbHNldmllci5jb20mY3VzdG9tPW5vbmU=" type="application/javascript" async>
+  </script>
+  <script type="text/javascript">
+    var MendeleybookmarkletUrl = '';
+    var isPreviewPage = true;
+    var selectedNav = "";
+    var isRegisteredPreview = false;
+    if (false) {
+      isRegisteredPreview = true;
+    }
+  </script>
+  <script type="text/javascript">
+    writeJavaScriptCookie();
+    isLoggedInUser = 'true' === 'false';
+    isShibUser = ('GUEST' === "SHIBBOLETHANON") ? true : false;
+    isIndividuallyAuthenticated = isLoggedInUser || (false);
+  </script>
+  <script type="text/javascript">
+    var isIDPlusEnabled = 'true' === 'false';
+  </script>
+  <script>
+    var smapiVars = {};
+    smapiVars["AFW_AUTHOR_MAX_SELECT_COUNT"] = "10";
+    smapiVars["MAX_SOURCE_RESULTS_DISPLAYED"] = "1000";
+  </script>
+  <title>
+    Scopus preview - Scopus - Search for an author profile
+  </title>
+  <script type="text/javascript" src="/gzip_504193193/bundles/SiteCatalystTop.js"></script>
+  <script type="text/javascript">
+    var pageData = {
+      page: {},
+      visitor: {}
+    };
+    pageDataUtil.loadPageDataObject("false", "216.106.142.109", "en_US", "", "13341253", "(13341253,U|289839,D|278641,A|72218,P|1,PL)(SCOPUS,CON|0b7f7b906703474797583c73ec000b5c03cfgxrqa,SSO|ANON_GUEST,ACCESS_TYPE)",
+      "GUEST", "278641", "", "Scopus Preview");
+  </script>
+  <script src="//assets.adobedtm.com/376c5346e33126fdb6b2dbac81e307cbacfd7935/satelliteLib-c74074f9c1cbd68a79f7ff7103e0cdc14b7e5f41.js"></script>
+</head>
+
+<body onLoad="onBodyLoad();" data-page-type="" id="resultsPagePreview">
+  <div id="mainSkipNav" class="skipnav list-group">
+    <a href="#skip1" class="list-group-item">Skip Main Navigation Links</a>
+    <a href="#skiptofooter" class="list-group-item">Jump to Footer</a>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid mainRow" id="rowMain">
+      <div id="contentContainer" class="col-md-12 fullHeightHack content">
+        <div class="row">
+          <div class="col-md-12 globalNavigation">
+            <header>
+              <a name="top" id="top"></a>
+              <input type="hidden" id="txGid" value="D4495EBFDF83C577E65E3280517C8954.wsnAw8kcdt7IPYLO0V48gA:4" />
+              <script type="text/javascript">
+                var isPreviewPage = true;
+              </script>
+              <div class="col-md-1">
+                <h1 class="logo">
+<a href="/authoridentifier" title="Select to go to the Scopus main search page">
+<img src="/static/images/preview/scopuspreviewOrange.svg" alt="Select to go to the Scopus main search page">
+</a>
+</h1>
+              </div>
+              <nav class="navbar col-md-11 globalNavigation">
+                <ul class="nav navbar-nav navbar-right verticalAlign">
+                  <li class="active">
+                    <a href="/freelookup/form/author.uri?zone=&amp;origin=searchauthorfreelookup">
+<span class="anchorText">Author search</span></a>
+                  </li>
+                  <li>
+                    <a href="/sources?zone=&amp;origin=searchauthorfreelookup" class=""><span class="anchorText">  Sources</span></a>
+                  </li>
+                  <li id="helpMenu">
+                    <div class="dropdownGroup">
+                      <button type="button" title="Select to display help and Contact options" class="btn btn-link dropdown-toggle icon-wide" id="helpMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="anchorText">Help</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                      <div id="helpMenuDropdown" class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="helpMenu">
+                        <span class="dropdownHeader"></span>
+                        <span class="dropdownContent">
+<span class="dropdownContentWrap">
+<span id="dropdownTitle" class="row" tabindex="-1"></span>
+                        <ul class="list-unstyled">
+                          <li role="presentation">
+                            <a role="menuitem" href="/standard/help.uri?topic=15533&anchor=tips" target="globalHelp" onClick="return openGlobalhelp('/standard/help.uri?zone=&amp;origin=searchauthorfreelookup&amp;topic=15533','globalHelp',760,570,0)" title="View Scopus help files (opens in a new window)"
+                              class="secondaryLink">
+<span class="anchorText">Help</span>
+</a>
+                          </li>
+                          <li role="presentation">
+                            <a role="menuitem" href="#" target="globalHelp" onClick="return openGlobalhelp('/standard/tutorial.uri?zone=&amp;origin=searchauthorfreelookup&amp;module=search',
+'globalHelp',760,570,0)" title="Select to view tutorials (opens in a new window)" class="secondaryLink">
+<span class="anchorText">Tutorials</span>
+</a>
+                          </li>
+                          <li role="presentation">
+                            <a role="menuitem" href="#" target="_blank" title="Contact us (opens in a new window)" onClick="return openGlobalhelp('/standard/contactForm.uri?zone=&amp;origin=searchauthorfreelookup',
+'globalHelp',760,570,0)" class="secondaryLink">
+<span class="anchorText">Contact us</span>
+</a>
+                          </li>
+                        </ul>
+                        <button class="btn btn-link closeDropDown" data-toggle="dropdown" id="closeHelpMenu" type="button">
+<span class="ico-delete icon" aria-hidden="true"></span>
+<span class="sr-only">Close help menu</span>
+</button>
+                        </span>
+                        </span>
+                        <span class="dropdownFooter"></span>
+                      </div>
+                    </div>
+                  </li>
+                  <li id="registerLogin">
+                    <div xmlns:cars="http://cars-services.elsevier.com/cars/server" class="CARS_panelClass" id="login-panel" displaystyle="">
+                      <div displaystyle="" id="login_page_main" class="    ">
+                        <div id="login_maincontroller" class="    " displaystyle=":right">
+                          <a id="login_reglink" displaystyle="" href="https://www.scopus.com/customer/profile/display.uri" title="Register a username and password for using alerts and other personal features">Register</a>
+                          <a onclick="javascript:return CARS.submitCheck(&quot;toggleBackground,toggle&quot;,this)"
+                            href="javascript:void(0);" displaystyle="" id="login_loginlink" aria-haspopup="true" title="Login To Scopus" aria-controls="login_pop_container">
+                            <div class="CARS_displayNone">
+                              <script type="text/javascript">
+                                if (true) {
+                                  var metainfo = new CARS.metadata();
+                                  metainfo.elementId = 'login_loginlink_expand';
+                                  metainfo.action = 'toggle';
+                                  metainfo.dependency = 'login_loginlink_expand,login_loginlink_collapse,login_pop_container';
+                                  metainfo.name = 'login_loginlink_expand';
+                                  CARS_dataList.push(metainfo);
+                                }
+                              </script>
+                            </div>
+                            <img displaystyle=":expandImage" id="login_loginlink_expand">
+                            <div class="CARS_displayNone">
+                              <script type="text/javascript">
+                                if (true) {
+                                  var metainfo = new CARS.metadata();
+                                  metainfo.elementId = 'login_loginlink_collapse';
+                                  metainfo.action = 'toggle';
+                                  metainfo.dependency = 'login_loginlink_collapse,login_loginlink_expand,login_pop_container';
+                                  metainfo.name = 'login_loginlink_collapse';
+                                  CARS_dataList.push(metainfo);
+                                }
+                              </script>
+                            </div>
+                            <img displaystyle=":collapseImage:displaynone" id="login_loginlink_collapse">Login</a>
+                          <div class="CARS_displayNone">
+                            <script type="text/javascript">
+                              if (true) {
+                                var metainfo = new CARS.metadata();
+                                metainfo.elementId = 'login_loginlink';
+                                metainfo.action = 'toggleBackground,toggle';
+                                metainfo.dependency = 'login_pop_container';
+                                if (metainfo.action.indexOf("toggle") != -1) {
+                                  metainfo.dependency = metainfo.dependency + "," + metainfo.elementId + "_expand," + metainfo.elementId + "_collapse";
+                                  metainfo.executeonload = '';
+                                  metainfo.togglevarid = '';
+                                  metainfo.requireddependency = '';
+                                }
+                                if (metainfo.action.indexOf("onchange") != -1) {
+                                  metainfo.selecttextdependency = '';
+                                  metainfo.executeonload = '';
+                                  metainfo.defaultselectvalue = '';
+                                  metainfo.togglevarid = '';
+                                  metainfo.requireddependency = '';
+                                }
+                                metainfo.name = '';
+                                metainfo.validationcheck = '';
+                                metainfo.error = '';
+                                metainfo.togglestyle = ':background';
+                                metainfo.togglestyleid = 'login_loginlink';
+                                CARS_dataList.push(metainfo);
+                              }
+                            </script>
+                          </div>
+                        </div>
+                        <div class="CARS_clear"></div>
+                        <div id="login_pop_container" class="    " displaystyle=":paddingsmall:right:displaynone:background:border" focusrequired="true">
+                          <div id="login_pop_container_logform" class="    " displaystyle=":background:left:widthsmall">
+                            <div class="CARS_groupTitle">Login using your Elsevier credentials</div>
+                            <form action="https://www.scopus.com/customer/authenticate.uri" method="POST" enctype="form-data">
+                              <div id="login_username" displaystyle="" class="    ">
+                                <label for="username"><span>Username:</span></label><input type="text" name="username" id="username" aria-required="true" focusonload="true"><span displaystyle="" class="CARS_red">*</span>
+                              </div>
+                              <div id="login_password" displaystyle="" class="    ">
+                                <label for="login_password-password"><span>Password:</span></label><input type="password" name="password" id="login_password-password" aria-required="true"><span displaystyle="" class="CARS_red">*</span>
+                              </div>
+                              <div id="login_rem_forgot_submit" class="    " displaystyle="">
+                                <div displaystyle=":displayblock:paddingL120" class="    ">
+                                  <input type="checkbox" id="login_rem_check" name="remember_flag" checked value="true" title="Remember me"><label for="login_rem_check">Remember me</label>
+                                </div>
+                                <div id="login_submit_btn" displaystyle=":displayinline:paddingL120" class="    ">
+                                  <input type="submit" title="Login" aria-label="Login" value="Login" name="submit">
+                                </div>
+                                <a id="login_not_register" displaystyle="" href="https://www.scopus.com/customer/profile/display.uri" title="Register a username and password for using alerts and other personal features">Not Registered?<span displaystyle=":hidespan">Register a username and password for using alerts and other personal features</span></a>
+                              </div>
+                              <a id="login_forgot_pass" displaystyle=":fontverysmall:paddingL120:paddingT10" onclick="javascript:return CARS.submitCheck(&quot;openPopUp&quot;,this)" href="https://www.scopus.com/customer/reminder.uri" title="Opens in a new window." target="_popup">Forgotten your username or password?<span displaystyle=":hidespan">Opens in a new window.</span></a>
+                              <div class="CARS_displayNone">
+                                <script type="text/javascript">
+                                  if (true) {
+                                    var metainfo = new CARS.metadata();
+                                    metainfo.elementId = 'login_forgot_pass';
+                                    metainfo.action = 'openPopUp';
+                                    metainfo.dependency = '';
+                                    if (metainfo.action.indexOf("toggle") != -1) {
+                                      metainfo.dependency = metainfo.dependency + "," + metainfo.elementId + "_expand," + metainfo.elementId + "_collapse";
+                                      metainfo.executeonload = '';
+                                      metainfo.togglevarid = '';
+                                      metainfo.requireddependency = '';
+                                    }
+                                    if (metainfo.action.indexOf("onchange") != -1) {
+                                      metainfo.selecttextdependency = '';
+                                      metainfo.executeonload = '';
+                                      metainfo.defaultselectvalue = '';
+                                      metainfo.togglevarid = '';
+                                      metainfo.requireddependency = '';
+                                    }
+                                    metainfo.name = '';
+                                    metainfo.validationcheck = '';
+                                    metainfo.error = '';
+                                    metainfo.togglestyle = '';
+                                    metainfo.togglestyleid = '';
+                                    CARS_dataList.push(metainfo);
+                                  }
+                                </script>
+                              </div>
+                              <input type="hidden" name="auth_type" value="LOGIN_PASSWORD"><input type="hidden" name="http_method_name" value="POST"><input type="hidden" name="shibboleth_fence" value="true"><input type="hidden" name="isClaimingRemoteAccess"
+                                value="FALSE"><input type="hidden" name="remember_path_flag" value="false"><input type="hidden" name="path_choice" value=""><input type="hidden" name="path_choice_exists" value="false"><input type="hidden" name="acct_name"
+                                value=""><input type="hidden" name="dept_name" value=""><input type="hidden" name="PII_Req" value=""><input type="hidden" name="cars_cookie_flag" value="TRUE"><input type="hidden" name="origin" value="loginBox"><input type="hidden"
+                                name="zone" value="main">
+                            </form>
+                          </div>
+                          <div id="login_pop_container_socialform" class="    " displaystyle=":left:widthsmall:background">
+                            <form action="https://www.scopus.com/customer/authenticate.uri" method="POST" enctype="form-data">
+                              <a onclick="javascript:return CARS.submitCheck(&quot;submit&quot;,this,&quot;true&quot;)" href="javascript:void(0);" displaystyle="" id="login_open_athens" title="Log in using OpenAthens">OpenAthens login</a><input type="hidden"
+                                name="federation_id" value="6025"><input type="hidden" name="institution_id" value="88190"><input type="hidden" name="auth_type" value="SHIBBOLETH"><input type="hidden" name="domain_name" value="https://www.scopus.com/customer/authenticate.uri">
+                            </form>
+                            <div id="institutionAvail" class="    " displaystyle="">
+                              <div class="CARS_groupTitle">Login via your institution</div>
+                              <div id="rem-inst-choice-list" class="    " displaystyle="displayblock"></div>
+                              <a id="login_other_inst" displaystyle="" href="https://www.scopus.com/customer/institutionchoice.uri?shibboleth_fence=TRUE&amp;origin=loginBox&amp;zone=main" title="Other Institution login">Other Institution login</a>
+                              <div id="login-inst-choice-fed-inst-list" class="    " displaystyle=":displaynone">
+                                <div id="login-inst-choice-list" class="    " displaystyle="displayblock"></div>
+                              </div>
+                            </div>
+                            <div id="remotegroup" class="    " displaystyle="">
+                              <form action="https://www.scopus.com/customer/authenticate/manra.uri" method="POST" enctype="form-data">
+                                <a onclick="javascript:return CARS.submitCheck(&quot;submit&quot;,this,&quot;true&quot;)" href="javascript:void(0);" displaystyle="" id="login_remote_access" title="Apply for Remote Access">Apply for Remote Access</a>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+              <div id="login" class="clearfix">
+              </div>
+            </header>
+          </div>
+        </div>
+        <div class="row">
+          <div id="contentWrapper" class="col-md-12">
+            <div id="alertArea" aria-live="polite" aria-atomic="true">
+            </div>
+            <div id="container">
+              <a name="skip1" id=skip1 href="#"></a>
+              <script language="JavaScript" type="text/javascript">
+                <!--
+                var isCoAuthorSearch = false;
+                //-->
+              </script>
+              <form id="authorResultsFormId" name="AuthorLookupResultsForm" class="marginT5" action="/results/authorLookup.uri" method="post">
+                <input type="hidden" name="origin" value="searchauthorfreelookup">
+                <input id="activeFlag" name="activeFlag" type="hidden" value="true" />
+                <input id="showDocument" name="showDocument" type="hidden" value="false" />
+                <input id="details" name="details" type="hidden" value="" />
+                <input id="oldResultsPerPage" name="oldResultsPerPage" type="hidden" value="20" />
+                <input id="advancedSearchURL" name="advancedSearchURL" type="hidden" value="https://www.scopus.com/search/form.uri?display=advanced&amp;txGid=9a564948fc748bebc77f09d61be9f970" />
+                <input id="advancedSrchQuery" name="advancedSrchQuery" type="hidden" value="" />
+                <input id="endPage" name="endPage" type="hidden" value="1" />
+                <input id="previousResultCount" name="previousResultCount" type="hidden" value="13" />
+                <input id="s" name="s" type="hidden" value="AUTHLASTNAME(Bukvic) SUBJAREA(MULT OR ARTS OR BUSI OR DECI OR ECON OR PSYC OR SOCI)" />
+                <input id="selectDeselectAllAttempt" name="selectDeselectAllAttempt" type="hidden" value="" />
+                <input id="cc" name="cc" type="hidden" value="10" />
+                <input id="cl" name="cl" type="hidden" value="" />
+                <input id="contextBox" name="contextBox" type="hidden" value="" />
+                <input id="cluster" name="cluster" type="hidden" value="" />
+                <input id="connector" name="connector" type="hidden" value="" />
+                <input id="sessionSearchId" name="sessionSearchId" type="hidden" value="" />
+                <input id="sid" name="sid" type="hidden" value="85b9f43779b85488ab69e12c9efefdcc" />
+                <input id="reselectAuthor" name="reselectAuthor" type="hidden" value="false" />
+                <input id="queryString" name="queryString" type="hidden" value="" />
+                <input id="returnToButtonAvailable" name="returnToButtonAvailable" type="hidden" value="false" />
+                <input id="firstPage" name="firstPage" type="hidden" value="" />
+                <input id="origQuery" name="origQuery" type="hidden" value="" />
+                <input id="origTerm1" name="origTerm1" type="hidden" value="" />
+                <input id="origTerm2" name="origTerm2" type="hidden" value="" />
+                <input id="partialQuery" name="partialQuery" type="hidden" value="" />
+                <input id="previousSelectionCount" name="previousSelectionCount" type="hidden" value="0" />
+                <input id="selectedResultsCount" name="selectedResultsCount" type="hidden" value="0" />
+                <input id="ignoreTooManyValidation" name="ignoreTooManyValidation" type="hidden" value="" />
+                <input id="editAlertReturnFlag" name="editAlertReturnFlag" type="hidden" value="" />
+                <input id="authorSearchURL" name="authorSearchURL" type="hidden" value="https://www.scopus.com/search/form.uri?display=authorLookup&amp;st1=Bukvic&amp;orcidId=&amp;origin=searchauthorlookup&amp;returnTo=authorLookup&amp;txGid=9a564948fc748bebc77f09d61be9f970"
+                />
+                <input id="affilCity" name="affilCity" type="hidden" value="" />
+                <input id="affilCntry" name="affilCntry" type="hidden" value="" />
+                <input id="clustering" name="clustering" type="hidden" value="" />
+                <input id="sortClusterField" name="sortClusterField" type="hidden" value="" />
+                <input type="hidden" name="clickedLink">
+                <input type='hidden' name='recordid' />
+                <input type='hidden' name='displayPerPageFlag' value='f' />
+                <input type='hidden' name='sort' value='' />
+                <input type='hidden' name='currentSort' value='count-f' />
+                <input id="offset" name="offset" type="hidden" value="1" />
+                <input id="pageItems" name="pageItems" type="hidden" value="54790546300!6602865778!35093638900!55944520200!55243788300!55752965800!57192680926!55549862900!16243235200!39961120200!57199633351!57193223183!11639512700" />
+                <input id="selectionPageSearch" name="selectionPageSearch" value="anl" type="hidden" value="anl" />
+                <input id="clusterAttributeValue" name="clusterAttributeValue" type="hidden" value="" />
+                <input id="rebrandResultsPage" name="rebrandResultsPage" type="hidden" value="false" />
+                <input id="origin" name="origin" value="searchauthorfreelookup" type="hidden" value="searchauthorfreelookup" />
+                <input type='hidden' id='addActiveFlag' name='addActiveFlag' value='' />
+                <input type='hidden' id='preferredNameFormat' name='preferredNameFormat' value='' />
+                <input type='hidden' id='isOwnProfile' name='isOwnProfile' value='' />
+                <input type="hidden" name="st1" value="Bukvic">
+                <input type="hidden" name="st2" value="">
+                <input type="hidden" name="exactAuthorSearch" value="off">
+                <div class="row">
+                  <div class="col-md-12 docResultsTitleBar">
+                    <header>
+                      <h1 class="documentHeader preview">
+<span class="resultsCount">13</span> author results
+<ul class="resultsOptionalLinks list-inline">
+<li>
+<a href="/standard/help.uri?topic=11212" class="btn-link" target="_new" title="Learn more about Scopus Author Identifier (Opens in a new window)">
+<span class="anchorText">About Scopus Author Identifier</span>
+<span class="ico-navigate-right" aria-hidden="true"></span>
+</a>
+</li>
+</ul>
+</h1>
+                    </header>
+                  </div>
+                </div>
+                <nav id="resultsMenu" class="resultsQueryBar navbar">
+                  <h2 class="navbar-brand">
+Author last name <span class="querySrchTerm"><em>"Bukvic"</em></span>
+</br>
+<span class="txtSmaller">Subject Areas: <b>Social Sciences & Humanities</b></span>
+</h2>
+                  <ul class="nav navbar-nav">
+                    <li>
+                      <button id="authEditButton" class="btn-link" data-href="/freelookup/form/author.uri?st1=Bukvic" title='Edit search query'>
+<span class="ico-pencel" aria-hidden="true"></span>
+<span class="btnText">Edit</span>
+</button>
+                    </li>
+                  </ul>
+                </nav>
+                <div class="alert alert-info">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                  <p id="authResultsTextZoneHolder">
+                    The Scopus Author Identifier assigns a unique number to groups of documents written by the same author via an algorithm that matches authorship based on a certain criteria. If a document cannot be confidently matched with an author identifier, it is grouped
+                    separately. In this case, you may see more than one entry for the same author.
+                  </p>
+                </div>
+                <div class="displayNone">
+                </div>
+                <script language="javascript" type="text/javascript">
+                  <!--
+                  var message = "";
+                  var activeResultsCount;
+                  var resultsCount = "13";
+                  var authorIdsEnabled = "true";
+                  var pageType = "authors";
+                  var maxProfileSelectionLimit = 30;
+                  var maxAuthorFeedbackSelectionLimit = 50;
+                  var previousSelectedCount = 0;
+                  var pageToPageSelections = 0;
+                  var tooManySelectedErrorMsg = '';
+                  setTimeout('showMessage()', 200);
+                  formname = 'AuthorLookupResultsForm';
+                  var wizardUrlVar = '';
+                  var isIndividual = 'false';
+                  var isPreviewVar = false;
+                  var isWizardLogin = 'false';
+                  //-->
+                </script>
+                <div class="row wrapper resultsList">
+                  <div id="refinePanelCol" class="col-md-3">
+                    <div id="refinePanel">
+                      <div id="leftColumnAuthor"></div>
+                    </div>
+                  </div>
+                  <div id="resultsPanelCol" class="col-md-9">
+                    <div id="resultsPanel" class="afwListPanel">
+                      <div id="rightColumn">
+                        <div id="resultsPageOptions">
+                          <ul class="row list-unstyled list-inline">
+                            <li id="showAbstractSort" class="pull-right">
+                              <div id="sort_container" class="sortContainer">
+                                <span id="sortNav" class="pull-right">
+<label for="navLoad" class="marginRight1">Sort on:</label>
+<select id="navLoad" class="mediumSelect"></select>
+</span>
+                              </div>
+                            </li>
+                          </ul>
+                          <div class="row">
+                            <div id="resultsListToolbar" class="btn-toolbar" role="toolbar" aria-label="Results List Tool Bar">
+                              <div class="btn-group" role="group" id="btnToolbar">
+                                <ul class="list-unstyled list-inline" id="selectAllOptions">
+                                  <li id="selectAllCheck">
+                                    <input type="checkbox" name="groupCheckBox" id="allPageCheckBox" title="Select all results">
+                                    <label for="allPageCheckBox" class="checkbox-label noLabel">
+<span class="sr-only">Select all results on the page</span>
+</label>
+                                  </li>
+                                  <li id="selectAllPage">
+                                    <div id="selectAllOrPage" class="dropdownGroup">
+                                      <button type="button" class="btn btn-link dropdown-toggle color" id="showAllPageBubble" data-toggle="dropdown" aria-expanded="false">
+<span id="allPageSelectedValue" class="btnText fontSizeNorm">All</span>
+<span class="ico-navigate-down icon-after fontSizeNorm" aria-hidden="true"></span>
+</button>
+                                      <input id="oldSelectAllCheckBox" name="oldSelectAllCheckBox" type="hidden" value="false" />
+                                      <div class="dropdown-menu dropdown-menu-left" id="selectAllMenuItem" role="menu">
+                                        <span class="dropdownHeader"></span>
+                                        <span class="dropdownContent">
+<span class="dropdownContentWrap">
+<ul class="list-unstyled" id="allPageBubble">
+<li>
+<input id="selectAllTop" name="allField" attr-sel="All" type="checkbox" value="on"/><input type="hidden" name="_allField" value="on"/>
+<label for="selectAllTop" class="checkbox-label" title="Select all results">Select all authors</label>
+</li>
+<li>
+<input id="selectPageTop" name="pageField" attr-sel="Page" type="checkbox" value="on"/><input type="hidden" name="_pageField" value="on"/>
+<label for="selectPageTop" class="checkbox-label" title="Select page results" >Select page</label>
+</li>
+</ul>
+<button class="btn btn-link closeDropDown" data-toggle="dropdown" type="button">
+<span class="ico-delete icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Close show preview menu</span>
+                                        </button>
+                                        </span>
+                                        </span>
+                                        <span class="dropdownFooter"></span>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li class="docHeaderLinks lnkDisabled">
+                                    <button class="btn-sm btn-link color clickAction" disabled="disabled" data-type="setFeed1" title="Please select one or more document(s) below to Set document feed">
+<span class="rssFeed" aria-hidden="true"></span>
+<span class="btnText">Set document feed</span>
+</button>
+                                    <button type="button" class="btn-sm btn-link color feedback" disabled="disabled" data-type="feedbackPreview" id="reqMergeAuthorButton" title="Please select one or more author(s) below to Request to merge authors">
+<span class="btnText">Request to merge authors</span>
+</button>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="resultsBody">
+                          <div id="authPrevResultsList">
+                            <table id="srchResultsList" class="table">
+                              <summary class="sr-only">Author Result List</summary>
+                              <thead>
+                                <tr>
+                                  <th scope="col" id="resultNoHeader"><span class="sr-only">Result Number</span></th>
+                                  <th scope="col" id="authTitleHeader">Author</th>
+                                  <th scope="col" id="documentsHeader" class="alignRight">Documents</th>
+                                  <th scope="col" id="subAreaHeader">Subject area</th>
+                                  <th scope="col" id="affilHeader">Affiliation</th>
+                                  <th scope="col" id="cityHeader">City</th>
+                                  <th scope="col" id="countryHeader" class="alignRight">Country/Territory</th>
+                                </tr>
+                              </thead>
+                              <tr id="resultDataRow1" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_54790546300" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="21" name="AuthorForm" data-name="Bukvić-Mokos, Zrinka" type="checkbox" value="54790546300" /><input type="hidden"
+                                      name="_authorIds" value="on" />
+                                    <label for="auid_54790546300" class="checkbox-label">
+1
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  <a href="https://www.scopus.com/inward/authorDetails.uri?authorID=54790546300&amp;partnerID=5ESL7QZV&amp;md5=1df60e6c70c6f288dfa1e565e182781f" title="" class="docTitle"> Bukvić-Mokos, Zrinka</a>
+                                  <div class="txtSmaller">
+                                    Bukvic Mokos, Z.
+                                  </div>
+                                  <div class="txtSmaller">
+                                    Bukvic-Mokos, Z.
+                                  </div>
+                                  <div class="txtSmaller">
+                                    Bukvic- Mokos, Z.
+                                  </div>
+                                </td>
+                                <td id="resultsDocumentsCol1" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=0&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=54790546300&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+21
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Medicine ; Immunology and Microbiology ; Biochemistry, Genetics and Molecular Biology; ...
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=60006461&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">University of Zagreb School of Medicine</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Zagreb
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  Croatia
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow1">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle54790546300" class="btn-link" onclick="return toggleShowTitle('54790546300',1);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow1' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData54790546300' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow2" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_6602865778" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="20" name="AuthorForm" data-name="Bukvić, Nado" type="checkbox" value="6602865778" /><input type="hidden" name="_authorIds"
+                                      value="on" />
+                                    <label for="auid_6602865778" class="checkbox-label">
+2
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  <a href="https://www.scopus.com/inward/authorDetails.uri?authorID=6602865778&amp;partnerID=5ESL7QZV&amp;md5=1f2b33aa0a023c626edf3ef1663adf65" title="" class="docTitle"> Bukvić, Nado</a>
+                                  <div class="txtSmaller">
+                                    Bukvić, Nado
+                                  </div>
+                                  <div class="txtSmaller">
+                                    Bukvic, Nado
+                                  </div>
+                                  <div class="txtSmaller">
+                                    Bukvić, N.
+                                  </div>
+                                </td>
+                                <td id="resultsDocumentsCol2" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=1&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=6602865778&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+20
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Medicine ; Social Sciences ; Arts and Humanities; ...
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=60077688&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">Klinicki Bolnicki Centar</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Rijeka
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  Croatia
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow2">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle6602865778" class="btn-link" onclick="return toggleShowTitle('6602865778',2);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow2' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData6602865778' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow3" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_35093638900" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="11" name="AuthorForm" data-name="Bukvic, Ivica Ico" type="checkbox" value="35093638900" /><input type="hidden"
+                                      name="_authorIds" value="on" />
+                                    <label for="auid_35093638900" class="checkbox-label">
+3
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  <a href="https://www.scopus.com/inward/authorDetails.uri?authorID=35093638900&amp;partnerID=5ESL7QZV&amp;md5=fec3fc4d0fddc85aa5b41efc3fa40e6d" title="" class="docTitle"> Bukvic, Ivica Ico</a>
+                                  <div class="txtSmaller">
+                                    Bukvic, Ivica
+                                  </div>
+                                </td>
+                                <td id="resultsDocumentsCol3" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=2&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=35093638900&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+11
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Computer Science ; Arts and Humanities ; Engineering; ...
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=60027090&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">Virginia Polytechnic Institute and State University</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Blacksburg
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  United States
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow3">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle35093638900" class="btn-link" onclick="return toggleShowTitle('35093638900',3);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow3' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData35093638900' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow4" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_55944520200" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="7" name="AuthorForm" data-name="Bukvic, Anamaria" type="checkbox" value="55944520200" /><input type="hidden"
+                                      name="_authorIds" value="on" />
+                                    <label for="auid_55944520200" class="checkbox-label">
+4
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  <a href="https://www.scopus.com/inward/authorDetails.uri?authorID=55944520200&amp;partnerID=5ESL7QZV&amp;md5=6a8d5041dfc39c9c98fa35b60fa3e6ea" title="" class="docTitle"> Bukvic, Anamaria</a>
+                                  <div class="txtSmaller">
+                                    Bukvic, A.
+                                  </div>
+                                </td>
+                                <td id="resultsDocumentsCol4" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=3&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=55944520200&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+7
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Environmental Science ; Earth and Planetary Sciences ; Social Sciences; ...
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=60027090&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">Virginia Polytechnic Institute and State University</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Blacksburg
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  United States
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow4">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle55944520200" class="btn-link" onclick="return toggleShowTitle('55944520200',4);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow4' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData55944520200' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow5" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_55243788300" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="5" name="AuthorForm" data-name="Bukvic, Gill" type="checkbox" value="55243788300" /><input type="hidden" name="_authorIds"
+                                      value="on" />
+                                    <label for="auid_55243788300" class="checkbox-label">
+5
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  <a href="https://www.scopus.com/inward/authorDetails.uri?authorID=55243788300&amp;partnerID=5ESL7QZV&amp;md5=b01bd11db7e0934339a5fb9ad14b9113" title="" class="docTitle"> Bukvic, Gill</a>
+                                  <div class="txtSmaller">
+                                    Bukvic, G.
+                                  </div>
+                                </td>
+                                <td id="resultsDocumentsCol5" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=4&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=55243788300&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+5
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Engineering ; Materials Science ; Physics and Astronomy; ...
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=60007228&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">Universidade do Sagrado Coracao</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Bauru
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  Brazil
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow5">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle55243788300" class="btn-link" onclick="return toggleShowTitle('55243788300',5);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow5' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData55243788300' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow6" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_55752965800" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="3" name="AuthorForm" data-name="Bukvić, Mara" type="checkbox" value="55752965800" /><input type="hidden" name="_authorIds"
+                                      value="on" />
+                                    <label for="auid_55752965800" class="checkbox-label">
+6
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  <a href="https://www.scopus.com/inward/authorDetails.uri?authorID=55752965800&amp;partnerID=5ESL7QZV&amp;md5=d0b391d7db290ee3f9c78467cc151c18" title="" class="docTitle"> Bukvić, Mara</a>
+                                  <div class="txtSmaller">
+                                    Bukvić, Mara
+                                  </div>
+                                  <div class="txtSmaller">
+                                    Bukvic, Mara
+                                  </div>
+                                </td>
+                                <td id="resultsDocumentsCol6" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=5&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=55752965800&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+3
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Computer Science ; Mathematics ; Energy; ...
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=60068815&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">University of Belgrade</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Belgrade
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  Serbia
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow6">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle55752965800" class="btn-link" onclick="return toggleShowTitle('55752965800',6);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow6' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData55752965800' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow7" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_57192680926" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="2" name="AuthorForm" data-name="Bukvić, Zlatko" type="checkbox" value="57192680926" /><input type="hidden"
+                                      name="_authorIds" value="on" />
+                                    <label for="auid_57192680926" class="checkbox-label">
+7
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  <a href="https://www.scopus.com/inward/authorDetails.uri?authorID=57192680926&amp;partnerID=5ESL7QZV&amp;md5=0b2014dc2911ab114fdbb0de9950eb2f" title="" class="docTitle"> Bukvić, Zlatko</a>
+                                  <div class="txtSmaller">
+                                    Bukvic, Zlatko
+                                  </div>
+                                </td>
+                                <td id="resultsDocumentsCol7" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=6&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=57192680926&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+2
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Medicine ; Psychology
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=120258433&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">Tomislav Spoljar Center for Education</span></a>
+                                  <!-- End display of Affiliation Names -->
+                                </td>
+                                <td class="dataCol6">
+                                  Varazdin
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  Croatia
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow7">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle57192680926" class="btn-link" onclick="return toggleShowTitle('57192680926',7);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow7' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData57192680926' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow8" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_55549862900" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="1" name="AuthorForm" data-name="Bukvić, Ana" type="checkbox" value="55549862900" /><input type="hidden" name="_authorIds"
+                                      value="on" />
+                                    <label for="auid_55549862900" class="checkbox-label">
+8
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  Bukvić, Ana
+                                </td>
+                                <td id="resultsDocumentsCol8" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=7&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=55549862900&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+1
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Arts and Humanities
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=60017028&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">University of Zadar</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Zadar
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  Croatia
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow8">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle55549862900" class="btn-link" onclick="return toggleShowTitle('55549862900',8);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow8' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData55549862900' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow9" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_16243235200" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="1" name="AuthorForm" data-name="Bukvić, Ivana" type="checkbox" value="16243235200" /><input type="hidden" name="_authorIds"
+                                      value="on" />
+                                    <label for="auid_16243235200" class="checkbox-label">
+9
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  Bukvić, Ivana
+                                </td>
+                                <td id="resultsDocumentsCol9" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=8&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=16243235200&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+1
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Social Sciences ; Engineering ; Chemical Engineering; ...
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=100381917&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">Fak. za turizam i vanjsku trgovinu</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Dubrovnik
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  Croatia
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow9">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle16243235200" class="btn-link" onclick="return toggleShowTitle('16243235200',9);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow9' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData16243235200' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow10" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_39961120200" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="1" name="AuthorForm" data-name="Bukvić, Milenka" type="checkbox" value="39961120200" /><input type="hidden"
+                                      name="_authorIds" value="on" />
+                                    <label for="auid_39961120200" class="checkbox-label">
+10
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  Bukvić, Milenka
+                                </td>
+                                <td id="resultsDocumentsCol10" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=9&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=39961120200&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+1
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Social Sciences
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText"></span></a>
+                                </td>
+                                <td class="dataCol6">
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow10">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle39961120200" class="btn-link" onclick="return toggleShowTitle('39961120200',10);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow10' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData39961120200' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow11" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_57199633351" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="1" name="AuthorForm" data-name="Bukvič, Vladimir" type="checkbox" value="57199633351" /><input type="hidden"
+                                      name="_authorIds" value="on" />
+                                    <label for="auid_57199633351" class="checkbox-label">
+11
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  Bukvič, Vladimir
+                                </td>
+                                <td id="resultsDocumentsCol11" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=10&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=57199633351&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+1
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Social Sciences
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=100456540&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">GEA College</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Ljubljana
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  Slovenia
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow11">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle57199633351" class="btn-link" onclick="return toggleShowTitle('57199633351',11);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow11' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData57199633351' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow12" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_57193223183" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="1" name="AuthorForm" data-name="Ico Bukvic, Ivica" type="checkbox" value="57193223183" /><input type="hidden"
+                                      name="_authorIds" value="on" />
+                                    <label for="auid_57193223183" class="checkbox-label">
+12
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  Ico Bukvic, Ivica
+                                </td>
+                                <td id="resultsDocumentsCol12" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=11&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=57193223183&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+1
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Engineering ; Arts and Humanities ; Computer Science; ...
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=60027090&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">Virginia Polytechnic Institute and State University</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Blacksburg
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  United States
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow12">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle57193223183" class="btn-link" onclick="return toggleShowTitle('57193223183',12);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow12' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData57193223183' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr id="resultDataRow13" class="searchArea">
+                                <th class="dataCol1" scope="row" rowspan="2">
+                                  <div class="checkbox">
+                                    <input id="auid_11639512700" name="authorIds" onclick="selectAuthorCheckbox(this,this.form)" data-doccount="1" name="AuthorForm" data-name="Kljajić-Bukvić, Blaženka" type="checkbox" value="11639512700" /><input type="hidden"
+                                      name="_authorIds" value="on" />
+                                    <label for="auid_11639512700" class="checkbox-label">
+13
+</label>
+                                  </div>
+                                </th>
+                                <td class="authorResultsNamesCol col20">
+                                  Kljajić-Bukvić, Blaženka
+                                </td>
+                                <td id="resultsDocumentsCol13" class="dataCol3 alignRight">
+                                  <a href="/results/authorLookup.uri?authorNameSelected=12&amp;
+st1=Bukvic&amp;st2=&amp;
+origin=AuthorNamesList&amp;resultsPerPage=20&amp;
+offset=1&amp;sort=count-f&amp;docSelectedAuthor=11639512700&amp;partialQuery=" title="View documents for this author" class="txtSmaller">
+1
+</a>
+                                </td>
+                                <td class="dataCol4">
+                                  Social Sciences
+                                </td>
+                                <td class="dataCol5">
+                                  <a href="/affil/profile.uri?id=60069798&origin=AuthorResultsList" class="secondaryLink" title='Show affiliation details'>
+<span class="anchorText">Dr. Josip Bencevic General Hospital</span></a>
+                                </td>
+                                <td class="dataCol6">
+                                  Slavonski Brod
+                                </td>
+                                <td class="dataCol7 alignRight">
+                                  Croatia
+                                </td>
+                              </tr>
+                              <tr id="resultLinkRow13">
+                                <td colspan="2">
+                                  <ul class="list-inline">
+                                    <li class="abstractLink">
+                                      <button id="toggleTitle11639512700" class="btn-link" onclick="return toggleShowTitle('11639512700',13);" title="Show most recent document title for this author">
+<span class="btnText">View last title</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+                                    </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr id='hiddenRow13' tabindex="0" class="panel-collapse collapse displayNone">
+                                <th aria-hidden="true"></th>
+                                <td colspan="6">
+                                  <div class="dropdownContent">
+                                    <div id='recentTitleData11639512700' class="dropdownContentWrap lastTitle"></div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="row paginationCont">
+                          <div id="resultsFooter" class="col-md-12">
+                            <div class="col-md-4">
+                              <span class="resultsPerPageSpan pull-left" id="authResultsPerPage">
+<label for="selectPageNo" class="plainLabel align-text-top marginRight1">Display:&nbsp;</label>
+<select id="resultsPerPage" name="resultsPerPage" class="extraSmallSelect">
+<option value="20" selected="selected">20</option><option value="50">50</option><option value="100">100</option><option value="200">200</option>
+</select>
+<label for="resultsPerPage" class="align-text-top marginLeft1">results per page</label>
+</span>
+                            </div>
+                            <div class="col-md-6 center-block text-center">
+                              <ul class="pagination">
+                                <input id="currentPage" name="currentPage" type="hidden" value="1" />
+                                <li>
+                                  <a data-value="1" href="#" onclick="submitOnPaginationLinkClick($(this).closest('form'),'1');">1</a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="resultsTopOfPage col-md-2">
+                              <div class="pull-right">
+                                <a class="topOfPage" href="#top" title="Top of page">
+<span class="ico-navigate-up" aria-hidden="true"></span>
+<span class="anchorText">
+Top of page
+</span>
+</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <response:flushBuffer/>
+                      <div id="authorRefineHidden" class="displayNone">
+                        <div id="refinePanel">
+                          <div class="authorResultsLeftColumn" id="leftColumn">
+                            <div id="NAVIGATOR_HEADER" class=''></div>
+                            <div class="rightTriangle rightTrianglePosition hidden" id="rightTrianglePosition"></div>
+                            <a href="#" title='Select to display Refine results options' class="btn btn-link btn-lg hidden" id="showRefineSearchResultCol" onclick="openCollapseLeftSideBar('open');">
+<span class="glyphicon glyphicon glyphicon-forward triangleColor"></span>
+</a>
+                            <div id="sRefineResults">
+                              <div class="noShowExactMatch"></div>
+                              <div id="RefineResults">
+                                <div id="RefineResults" class="authAffilTop">
+                                  <div class="hideRefine">
+                                    <h2 class="font-size-md margin-bottom-sm">Refine results
+</h2>
+                                    <div id="leftTrianglePosition" class="leftTriangle leftTrianglePosition"></div>
+                                    <a href="#" title='Select to hide Refine results options' class="btn btn-link btn-lg" id="hideRefineSearchResultCol" onclick="openCollapseLeftSideBar('collapse');">
+<span class="btn_collapse_Cluster glyphicon glyphicon glyphicon-backward triangleColor" id="hideRefineHdr" title='Select to hide Refine results options'>&nbsp;</span>
+</a>
+                                  </div>
+                                  <div class="refineButtons">
+                                    <ul class="list-inline">
+                                      <li>
+                                        <input type="submit" title='Limit to selected items' alt='Limit to selected items' disabled="disabled" class="btn btn-primary btn-sm btnLmtExcDisabled limitToButton" value='Limit to' name="limitTo">
+                                      </li>
+                                      <li>
+                                        <input type="submit" title='Exclude selected items' alt='Exclude selected items' class="btn btn-primary btn-sm btnLmtExcDisabled excludeButton" value='Exclude' disabled="disabled" name="exclude">
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div id="clusterData">
+                                  <script language="javascript" type="text/javascript">
+                                    <!--
+                                    var toggleOpenCluster = 'Click to open';
+                                    var toggleCloseCluster = 'Click to close';
+                                    //-->
+                                  </script>
+                                  <div id="hidden_src" class="displayNone">
+                                    al
+                                  </div>
+                                  <div id="NAVIGATOR_MIDDLE" class="displayNone"></div>
+                                  <div id="NAVIGATOR_LEFT" class="navigatorLeft"></div>
+                                  <div id="overlayBuffer" class="displayNone"></div>
+                                  <div id="no_navigators" class="dimension hidden">
+                                    No Refine categories have been selected.
+                                  </div>
+                                  <div id="navigators">
+                                    <div lang="cat_EXACTSRCTITLE" id="navigator_1" class="panel-group dummyNav">
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading" id="heading_srctitle">
+                                          <h3 class="panel-title">
+<button id="collapse_srctitle_link" type="button" disabled="disabled" class="btn btn-link btn-block text-left" data-toggle="collapse" aria-expanded="false">
+<span class="btnText">Source title    </span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+</h3>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div lang="cat_AFFILIATION" id="navigator_2" class="panel-group dummyNav">
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading" id="heading_srctitle">
+                                          <h3 class="panel-title">
+<button id="collapse_srctitle_link" type="button" disabled="disabled" class="btn btn-link btn-block text-left" data-toggle="collapse" aria-expanded="false">
+<span class="btnText">Affiliation     </span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+</h3>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div lang="cat_CITY" id="navigator_3" class="panel-group dummyNav">
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading" id="heading_srctitle">
+                                          <h3 class="panel-title">
+<button id="collapse_srctitle_link" type="button" disabled="disabled" class="btn btn-link btn-block text-left" data-toggle="collapse" aria-expanded="false">
+<span class="btnText">City</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+</h3>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div lang="cat_COUNTRY" id="navigator_4" class="panel-group dummyNav">
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading" id="heading_srctitle">
+                                          <h3 class="panel-title">
+<button id="collapse_srctitle_link" type="button" disabled="disabled" class="btn btn-link btn-block text-left" data-toggle="collapse" aria-expanded="false">
+<span class="btnText">Country/territory         </span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+</h3>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div lang="cat_SUBJAREA" id="navigator_5" class="panel-group dummyNav">
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading" id="heading_srctitle">
+                                          <h3 class="panel-title">
+<button id="collapse_srctitle_link" type="button" disabled="disabled" class="btn btn-link btn-block text-left" data-toggle="collapse" aria-expanded="false">
+<span class="btnText">Subject area</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</button>
+</h3>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="modal fade" id="resultLeftSidebarModal" tabindex="-1" role="dialog" aria-labelledby="resultLeftSidebarModalLabel">
+                                    <div class="modal-dialog modal-xxl modalVscroll" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close Dialog">
+<span class="ico-delete icon" aria-hidden="true"></span>
+</button>
+                                        </div>
+                                        <div class="modal-body"></div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-primary" data-dismiss="modal">
+<span class="btnText">Close</span>
+</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <script type="text/javascript" charset="utf-8">
+                                    var clusterState = "";
+                                    var authSourceCount = 0;
+                                    var authAffilCityCount = 0;
+                                    var authAffilCntryCount = 0;
+                                    var authAffilNameCount = 0;
+                                    var authAffilSubjectCount = 0;
+                                    jQuery(document)
+                                      .ready(
+                                        function() {
+                                          authSourceCount = "11";
+                                          authAffilCityCount = "11";
+                                          authAffilCntryCount = "5";
+                                          authAffilNameCount = "11";
+                                          authAffilSubjectCount = "11";
+                                          if (clusterState != null && clusterState.length > 0) {
+                                            showClusterStateInSessionForAuthor(clusterState);
+                                          }
+                                        });
+                                  </script>
+                                </div>
+                                <div id="clusterFooter">
+                                  <input id="displayClusteringCountFlag" name="displayClusteringCountFlag" type="hidden" value="f" />
+                                  <div class="authAffilTop paddingB7">
+                                    <div class="refineButtons">
+                                      <ul class="list-inline">
+                                        <li><input type="submit" title='Limit to selected items' alt='Limit to selected items' disabled="disabled" class="btn btn-primary btn-sm btnLmtExcDisabled limitToButton" value='Limit to' name="limitTo"></li>
+                                        <li><input type="submit" title='Exclude selected items' alt='Exclude selected items' class="btn btn-primary btn-sm btnLmtExcDisabled excludeButton" value='Exclude' disabled="disabled" name="exclude"></li>
+                                      </ul>
+                                    </div>
+                                    <div title="Export all of the refine values to a CSV file" class='exportRefine marginT10'>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="hidden" id="searchType"></div>
+                        <generic:featureAvailable name="enableRawXmlView">
+                          <span id="RawXmlHidden" style="display:none">
+<br>
+<hr>
+</span>
+                        </generic:featureAvailable>
+                      </div>
+                      <script type="text/javascript">
+                        document.getElementById('leftColumnAuthor').innerHTML = document.getElementById('authorRefineHidden').innerHTML;
+                        document.getElementById('authorRefineHidden').innerHTML = '';
+                      </script>
+                      <div class="modal fade" id="authorMergeCorrectionsModal" tabindex="-1" role="dialog" aria-labelledby="authorFeedbackWizard">
+                        <div class="modal-dialog modal-xsm" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close Dialog">
+<span class="ico-delete icon" aria-hidden="true"></span>
+</button>
+                              <div id="heading1" class="modal-title h3 noMarginBottom">
+                                What will you be able to do:
+                              </div>
+                            </div>
+                            <div class="modal-body">
+                              <div id="content1">
+                                <ul class="elsevierBullet paddingLeft1">
+                                  <li><span>Set the preferred name</span></li>
+                                  <li><span>Merge Profiles</span></li>
+                                  <li><span>Add and remove documents</span></li>
+                                  <li><span>
+Update Affiliation</span>
+                                    <span class="orangeText">
+Added new feature
+</span>
+                                </ul>
+                              </div>
+                              <div class="marginTop1 hidden" id="footerBeforeLogin">
+                                <div class="marginBottom1">Before you can make any changes, you must log in:</div>
+                                <div class="paddingBottom2"><button class="btn btn-primary" id="loginToAfw">Login</button></div>
+                              </div>
+                              <div class="marginTop2 hidden paddingBottom1" id="footerAfterLogin">
+                                <div><button class="btn btn-primary" id="proceedToAfwResults">Proceed to make changes</button></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="reviewDocumentPrefModal" tabindex="-1" role="dialog" aria-labelledby="reviewDocument">
+                      <input type="hidden" name="authCorrectionType" id="authCorrectionType" value="" />
+                      <div class="modal-dialog modal-xsm" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close Dialog">
+<span class="ico-delete icon" aria-hidden="true"></span>
+</button>
+                            <div id="heading1">
+                              <h4>Is there a name preference?</h4>
+                              <p>Please select the preferred name for the unique author profile.</p>
+                            </div>
+                            <div id="heading2" class="hidden">
+                              <h4 class="marginBottom1">Thank you.</h4>
+                              <p class="noMargin">You are making changes for "<span id="selNameVar"></span>".<br/> Is this your own profile?</p>
+                            </div>
+                            <div id="heading3" class="hidden">
+                              <span class="icon-messageRedAlert spriteBg pull-left marginRight1"></span>
+                              <h4 class="marginBottom1">An author profile is already associated with your account.</h4>
+                              <p class="noMargin">Only one profile should be associated with your account. What would you like to do?</p>
+                            </div>
+                          </div>
+                          <div class="modal-body">
+                            <div id="content1" class="marginBottom1">
+                              <div class="combobox-container" id="prefSelectCont"><select id="selectedAuthList" name="prefAuthor"></select></div>
+                            </div>
+                            <div id="content2" class="hidden paddingBottom1">
+                              <ul class="list-unstyled">
+                                <li class="marginBottom1">
+                                  <input id="yes" name="ownProfile" type="radio" value="yes" checked="checked">
+                                  <label for="yes" class="radio-label">Yes, this is my personal profile</label>
+                                </li>
+                                <li>
+                                  <input id="no" name="ownProfile" type="radio" value="no">
+                                  <label for="no" class="radio-label">No, I'm submitting the request on behalf of someone else</label>
+                                </li>
+                              </ul>
+                            </div>
+                            <div id="content3" class="hidden paddingBottom1">
+                              <ul class="list-unstyled">
+                                <li class="marginBottom1">
+                                  <input id="prevAssoc" name="authClaimAction" type="radio" value="" checked="checked">
+                                  <label for="prevAssoc" class="radio-label">Keep the previous profile (<span id="prevAuthClaim"></span>)</label>
+                                </li>
+                                <li class="marginBottom1">
+                                  <input id="newAssoc" name="authClaimAction" type="radio" value="update">
+                                  <label for="newAssoc" class="radio-label">Keep the new profile and discard other (<span id="newAuthClaim"></span>)</label>
+                                </li>
+                                <li>
+                                  <input id="deleteAssoc" name="authClaimAction" type="radio" value="delete">
+                                  <label for="deleteAssoc" class="radio-label">Do not associate any profile to my account</label>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="marginTop2 marginBottom1"><button class="btn btn-primary" id="prefContinue">Continue</button></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="marginTop2 marginBottom2 pull-right displayNone" id="reviewButtonDisplayID">
+                      <button class="btn btn-primary btnLmtExcDisabled" id="reviewDocument" disabled>Review Documents <span class="ico-navigate-right"/></button>
+                    </div>
+                    <div id='missingDocumentSelectAuthor' class='displayNone'>
+                      <form>
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close Dialog">
+<span class="ico-delete icon" aria-hidden="true"></span>
+</button>
+                          <h2 class="modal-title h4" id="authorDocHeader">Please confirm author's name</h2>
+                          <span id='instructionalTextFewAuthors'>Please select the author that matches this document from the list on the right</span>
+                          <span id='instructionalTextManyAuthors'>Please use the search field on the right to find the author that matches this document</span>
+                        </div>
+                        <div class="modal-body">
+                          <table id="docAndAuthorsLayout" class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col" id="docTitleHeader" width='60%'>Document title</th>
+                                <th scope="col" id="authorHeader" width='40%'>Authors</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <span id='selectedDocTitle'></span><br/>
+                                  <span id='selectedDocAuthorsShown'></span><span id='selectedDocAuthorsHidden'></span>
+                                  <button id='collapseAuthorNamesButton' type="button" class='btn-link color btn-sm noBorder noMargin noPaddingTop noPaddingBottom'>
+<span class='viewMore'>
+<span class="btnText marginRightQuarter">View all</span>
+<span class="ico-navigate-down" aria-hidden="true"></span>
+</span>
+<span class='viewLess'>
+<span class="btnText marginRightQuarter">View less</span>
+<span class="ico-navigate-up" aria-hidden="true"></span>
+</span>
+</button>
+                                  <br/>
+                                  <span id='selectedDocCiteInfo'></span><br/>
+                                  <span id='selectedDocPubYear'></span>
+                                </td>
+                                <td>
+                                  <div id='fewAuthorsControls'>
+                                    <div id='authorRadioSelectControl-0' class='marginBottom1'>
+                                      <input type='radio' id='authorRadioSelect-0' name='selectedAuthor' value='x'></input>
+                                      <label class="radio-label" for="authorRadioSelect-0" id='missingDocAuthorName-0'>author name here</label>
+                                    </div>
+                                    <div id='authorRadioSelectControl-1' class='marginBottom1'>
+                                      <input type='radio' id='authorRadioSelect-1' name='selectedAuthor' value='x'></input>
+                                      <label class="radio-label" for="authorRadioSelect-1" id='missingDocAuthorName-1'>author name here</label>
+                                    </div>
+                                    <div id='authorRadioSelectControl-2' class='marginBottom1'>
+                                      <input type='radio' id='authorRadioSelect-2' name='selectedAuthor' value='x'></input>
+                                      <label class="radio-label" for="authorRadioSelect-2" id='missingDocAuthorName-2'>author name here</label>
+                                    </div>
+                                    <div id='authorRadioSelectControl-3' class='marginBottom1'>
+                                      <input type='radio' id='authorRadioSelect-3' name='selectedAuthor' value='x'></input>
+                                      <label class="radio-label" for="authorRadioSelect-3" id='missingDocAuthorName-3'>author name here</label>
+                                    </div>
+                                    <div id='authorRadioSelectControl-4' class='marginBottom1'>
+                                      <input type='radio' id='authorRadioSelect-4' name='selectedAuthor' value='x'></input>
+                                      <label class="radio-label" for="authorRadioSelect-4" id='missingDocAuthorName-4'>author name here</label>
+                                    </div>
+                                    <div id='authorRadioSelectControl-5' class='marginBottom1'>
+                                      <input type='radio' id='authorRadioSelect-5' name='selectedAuthor' value='x'></input>
+                                      <label class="radio-label" for="authorRadioSelect-5" id='missingDocAuthorName-5'>author name here</label>
+                                    </div>
+                                    <div id='authorRadioSelectControl-6' class='marginBottom1'>
+                                      <input type='radio' id='authorRadioSelect-6' name='selectedAuthor' value='x'></input>
+                                      <label class="radio-label" for="authorRadioSelect-6" id='missingDocAuthorName-6'>author name here</label>
+                                    </div>
+                                  </div>
+                                  <div id='manyAuthorsControls'>
+                                    <br/>
+                                    <div id='authorSearchBoxContainer' class='advanced formControls' style='background-color: rgba(255, 255, 255, 0.85); box-shadow: 0px 0px 0px 16px rgba(255, 255, 255, 0.85);'>
+                                      <input type='radio' id='use-author-search' name='selectedAuthor' value='' />
+                                      <label class="radio-label" for="use-author-search" id='radio-use-author-search' style="z-index: 0;">&nbsp;</label>
+                                      <div id='authorSearchBox' class='advanced formControls' style='width: 85%; left: -20px; background-color: rgba(255, 255, 255, 0.85); box-shadow: 0px 0px 0px 16px rgba(255, 255, 255, 0.85);'>
+                                        <label id='authorNameSearchTermLabel' class='advanced textAreaLabel' for='authorNameSearchTerm'>Search for author</label>
+                                        <input type='text' id='authorNameSearchTerm' class='advanced textAreaField ui-autocomplete-input activeInputField' aria-labelledby='authorNameSearchTermLabel' />
+                                        <button type="button" class="btn btn-link clearButton hidden" id='clearAuthorNameSearchTermButton' style='margin-bottom: 1rem;'>
+<span class="sr-only">Clear Field</span>
+<span class="ico-delete fontLarge" aria-hidden="true"></span>
+</button>
+                                      </div>
+                                      <span id="help-block-text" class="help-block" style='position: relative; margin-left: 32px;'>e.g.,  Smith</span>
+                                    </div>
+                                  </div>
+                                  <div id='author-not-in-list-container'>
+                                    <input type='radio' id='author-not-in-list' name='selectedAuthor' value='not-in-list'></input>
+                                    <label class="radio-label" for="author-not-in-list" id='radio-missingDocAuthorName-not-in-list' style="z-index: 0;">Not on the list</label>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="modal-footer">
+                          <div class="pull-left form-inline">
+                            <button type="button" class="btn btn-secondary lightGreyBorder" id='backToResultsButton'>
+<span class="btnText"><span class="ico-navigate-left"/> Back to results</span>
+</button>
+                          </div>
+                          <div class="pull-right form-inline">
+                            <button type="submit" class="btn btn-primary btn-sm" class="btnEnable exportBtn" id="addDocumentButton" name="addDocument">
+<span id='addDocumentButtonText' class="btnText">Add document</span>
+<span id='uploadDocButtonText' class="btnText displayNone">Upload original document</span>
+</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div id='noAuthorsFoundMessage' class='hidden'>No authors found</div>
+                    <div id='uploadOrigalDocs' class='displayNone'>
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close Dialog">
+<span class="ico-delete icon" aria-hidden="true"></span>
+</button>
+                        <div id="initialPopup">
+                          <h3 class="noMarginBottom">Upload original document copy</h3>
+                          <p class="noMarginBottom">Please upload original document to confirm the author is on the list.</p>
+                          <div id="uploadInstruction" class="noMarginTop noMarginBottom p">
+                            <span class="errorNote displayInline">*</span>
+                            <p class="displayInline">Note: Your file must be in PDF format and no greater than 20 MB</p>
+                            <div id="uploadHelpInfobox" class="displayInlineBlock dropdown">
+                              <button type="button" title="Additional instructions for upload" class="btn btn-link dropdown-toggle btn-sm" id="uploadHelp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="ico-information triangleColor" aria-hidden="true"></span>
+</button>
+                              <div class="dropdown-menu dropdown-menu-right dropdown-menu-medium" role="menu" aria-labelledby="uploadHelp">
+                                <span class="dropdownHeader"></span>
+                                <div class="dropdownContent">
+                                  <div class="dropdownContentWrap">
+                                    <span id="dropdownTitle" class="row" tabindex="-1"></span>
+                                    <p>Please submit a PDF of the original publication ensuring that the following requirements are met:</p>
+                                    <ul>
+                                      <li>If the PDF file is a scanned article, a 300 DPI scan is requested. </li>
+                                      <li>The text in the PDF needs to be selectable in a PDF viewer like the Adobe Reader. </li>
+                                      <li>The scan needs to be upright and within the margins. </li>
+                                    </ul>
+                                    <button class="btn btn-link closeDropDown" data-toggle="dropdown" id="closeUploadHelpMenu" type="button">
+<span class="ico-delete icon" aria-hidden="true"></span>
+<span class="sr-only">Close window</span>
+</button>
+                                  </div>
+                                </div>
+                                <span class="dropdownFooter"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="successPopup" class="displayNone">
+                          <h3 class="noMarginBottom">Upload original document copy</h3>
+                          <p class="noMarginBottom">Please upload original document to confirm the author is on the list.</p>
+                        </div>
+                        <div id="pdfFailedContent" class="displayNone">
+                          <div class="alert alert-danger" role="alert">
+                            <div class="row flexDisplay flexAlignTop flexNoWrap">
+                              <span class="icon" aria-hidden="true">
+!
+</span>
+                              <div class="alertContent">
+                                <p>Your document must be in PDF format to be reviewed.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="sizeFailedContent" class="displayNone">
+                          <div class="alert alert-danger" role="alert">
+                            <div class="row flexDisplay flexAlignTop flexNoWrap">
+                              <span class="icon" aria-hidden="true">
+!
+</span>
+                              <div class="alertContent">
+                                <p>Your file exceeded the maximum allowable size of 20MB.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row boxPanel marginBottom2 lightGrayDottedBorder">
+                          <div id="filePlaceHolder" class="displayBlock">
+                            <div class="col-md-2">
+                              <div class="form-group marginTop1" id="dropFile">
+                                <label>Drop file here or</label>
+                              </div>
+                            </div>
+                            <div class="col-md-2 marginTopHalf">
+                              <div id='fileSelectorContainer' class="form-group">
+                                <input type="file" id="fileSelector" class="hide" />
+                                <button type="button" class="btn btn-primary btn-sm" id="addFile" name="addFile" onclick="$('#fileSelector').click()">
+<span class="btnText">Add file</span>
+</button>
+                              </div>
+                            </div>
+                            <div class="col-md-8"></div>
+                          </div>
+                          <div class='marginTopHalf displayNone' id="fileUploadSuccess">
+                            <span class='ico-pdf-file' aria-hidden='true'></span>
+                            <span class='marginLeftHalf'></span>
+                            <button type='button' class='btn-link  color noBorderLeft' id="deletePdf">
+<span class='ico-trash' aria-hidden='true'></span> </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <div class="pull-left form-inline">
+                          <button type="button" class="btn btn-secondary" id='backToAuthorsList'>
+<span class="ico-navigate-left" aria-hidden="true"></span>
+<span class="btnText fontNormal">Back to author's list</span>
+</button>
+                        </div>
+                        <div class="pull-right form-inline">
+                          <button type="button" class="btn btn-primary btn-sm" id="addPdfButton" name="addDocument" disabled>
+<span class="btnText">Add document</span>
+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 footer">
+            <footer>
+              <a href="#" name="skiptofooter" id="skiptofooter"></a>
+              <div class="row footerLinks">
+                <div class="col-md-3">
+                  <header>
+                    <h3>About Scopus</h3>
+                  </header>
+                  <ul class="list-unstyled">
+                    <li>
+                      <a target="_blank" href="https://www.elsevier.com/online-tools/scopus" title='Learn more about Scopus (opens in a new window)' class="secondaryLink">
+<span class="anchorText">What is Scopus</span>
+</a>
+                    </li>
+                    <li>
+                      <a target="_blank" href="https://www.elsevier.com/online-tools/scopus/content-overview/" title='Learn more about Scopus&#039; content coverage (opens in a new window)' class="secondaryLink">
+<span class="anchorText">Content coverage</span>
+</a>
+                    </li>
+                    <li>
+                      <a target="_blank" href="https://blog.scopus.com/" title='Read the Scopus Blog (opens in a new window)' class="secondaryLink">
+<span class="anchorText">Scopus blog</span>
+</a>
+                    </li>
+                    <li>
+                      <a target="_blank" href="https://dev.elsevier.com/" title='Learn more about Scopus API&#039;s (opens in a new window)' class="secondaryLink">
+<span class="anchorText">Scopus API</span>
+</a>
+                    </li>
+                    <li>
+                      <a target="_blank" href="https://www.elsevier.com/about/our-business/policies/privacy-principles" title='View privacy matters page (opens in a new window)' class="secondaryLink">
+<span class="anchorText">Privacy matters</span>
+</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-3">
+                  <header>
+                    <h3>Language</h3>
+                  </header>
+                  <ul class="list-unstyled" id="languageSwitchList" data-currentlocale="en_US">
+                    <li lang="ja">
+                      <a lang="ja" hreflang="ja" href="/personalization/switch/Japanese.uri?origin=&zone=footer&locale=ja_JP" target="_top" title="日本語版を表示する">
+<span class="anchorText">
+日本語に切り替える
+</span>
+</a>
+                    </li>
+                    <li lang="zh-Hans">
+                      <a lang="zh-Hans" hreflang="zh-Hans" href="/personalization/switch/Chinese.uri?origin=&zone=footer&locale=zh_CN" target="_top" title="查看简体中文版本">
+<span class="anchorText">
+切换到简体中文
+</span>
+</a>
+                    </li>
+                    <li lang="zh-Hant">
+                      <a lang="zh-Hant" hreflang="zh-Hant" href="/personalization/switch/Chinese.uri?origin=&zone=footer&locale=zh_TW" target="_top" title="查看繁體中文版本">
+<span class="anchorText">
+切換到繁體中文
+</span>
+</a>
+                    </li>
+                    <li lang="ru">
+                      <a lang="ru" hreflang="ru" href="/personalization/switch/Russian.uri?origin=&zone=footer&locale=ru_RU" target="_top" title="Просмотр версии на русском языке">
+<span class="anchorText">
+Русский язык
+</span>
+</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <header>
+                    <h3>Customer Service</h3>
+                  </header>
+                  <ul class="list-unstyled">
+                    <li>
+                      <a target="_blank" title="View Scopus help files (opens in a new window)" href="/standard/contactUs.uri?pageOrigin=footer">
+<span class="anchorText">Help</span>
+</a>
+                    </li>
+                    <li>
+                      <a target="_blank" title="Contact us (opens in a new window)" href="/standard/contactForm.uri?pageOrigin=footer">
+<span class="anchorText">
+Contact us
+</span>
+</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row footerCopyright">
+                <div class="col-md-2">
+                  <a id="elsevierLogo" target="_blank" href="https://www.elsevier.com/" title="Go to the Elsevier site (opens in a new window)">
+<img src="/static/images/logo_Elsevier.svg" alt="Elsevier">
+</a>
+                </div>
+                <div class="col-md-7">
+                  <ul class="list-unstyled list-inline">
+                    <li>
+                      <a target="_blank" href="https://www.elsevier.com/locate/termsandconditions" title="View the terms and conditions of Elsevier (opens in a new window)">
+<span class="anchorText">
+Terms and conditions
+</span>
+</a>
+                    </li>
+                    <li>
+                      <a target="_blank" href="https://www.elsevier.com/locate/privacypolicy" title="View the privacy policy of Elsevier (opens in a new window)">
+<span class="anchorText">
+Privacy policy
+</span>
+</a>
+                    </li>
+                  </ul>
+                  <p><span id="copyRightID">
+Copyright © 2018 <a target="_blank" href="https://www.elsevier.com" title="Go to the Elsevier site (opens in a new window)">Elsevier B.V</a>. All rights reserved. Scopus® is a registered trademark of Elsevier B.V.
+</span>
+                    <br />
+                    <span id="cookiesTextID">
+Cookies are set by this site. To decline them or learn more, visit our <a target="_blank" href="/cookies/policy.uri" title="See Cookie details (opens in a new window)">Cookies page</a>.
+</span>
+                  </p>
+                </div>
+                <div class="col-md-3">
+                  <a id="relexLogo" href="http://www.relx.com" title="Go to RELX Group Homepage (Opens in a new window)" target="_blank">
+<img src="/static/images/relexLogo.svg" alt="RELX Group">
+</a>
+                </div>
+              </div>
+            </footer>
+            <script type="text/javascript" src="/gzip_N704065157/bundles/ScopusMasterJS.js"></script>
+            <script type="text/javascript" src="/gzip_1973032133/bundles/AuthorFreeResultsBottomMaster.js"></script>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" value="278641" id="accId" name="accId">
+      <script type="text/javascript">
+        var WAM = new Object;
+        WAM.sep = "#";
+        WAM.ud = "GUEST#289839#278641";
+        WAM.cars = "";
+        WAM.part = "";
+        WAM.exportAction = function(format, info, count) {
+          return true;
+        };
+      </script>
+      <script type="text/javascript">
+      </script>
+      <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-busy="true" aria-live="assertive">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              Loading...
+              <span class="loading-wrapper">
+<span class="loadingIcon"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/gzip_N1496246882/bundles/pendoTop.js"></script>
+  <script type="text/javascript">
+    var pendoData = {};
+    pendoDataUtil.loadPendoDataObject("13341253",
+      "216.106.142.109",
+      "(13341253,U|289839,D|278641,A|72218,P|1,PL)(SCOPUS,CON|0b7f7b906703474797583c73ec000b5c03cfgxrqa,SSO|ANON_GUEST,ACCESS_TYPE)",
+      "GUEST",
+      "en_US",
+      "278641",
+      "Scopus Preview",
+      "");
+    (function(p, e, n, d, o) {
+      var v, w, x, y, z;
+      o = p[d] = p[d] || {};
+      o._q = [];
+      v = ['initialize', 'identify', 'updateOptions', 'pageLoad'];
+      for (w = 0, x = v.length; w < x; ++w)
+        (function(m) {
+          o[m] = o[m] ||
+            function() {
+              o._q[m === v[0] ? 'unshift' : 'push']([m]
+                .concat([].slice.call(arguments, 0)));
+            };
+        })(v[w]);
+      y = e.createElement(n);
+      y.async = !0;
+      y.src = 'https://cdn.pendo.io/agent/static/7108b796-60e0-44bd-6a6b-7313c4a99c35/pendo.js';
+      z = e.getElementsByTagName(n)[0];
+      z.parentNode.insertBefore(y, z);
+    })(window, document, 'script', 'pendo');
+    /* Call this whenever information about your visitors becomes available.
+     * Please use Strings, Numbers, or Bools for value types. */
+    pendo.initialize({
+      apiKey: '7108b796-60e0-44bd-6a6b-7313c4a99c35',
+      visitor: {
+        id: pendoData.userId,
+        scopusOriginalId: pendoData.scopusOriginalId,
+        ipAddress: pendoData.ipAddress,
+        loginStatus: pendoData.loginStatus,
+        language: pendoData.language,
+        SCSessionID: pendoData.SCSessionID,
+        navigatorLanguage: window.navigator.language
+      },
+      account: {
+        id: pendoData.accountId,
+        name: pendoData.accountName,
+        accessType: pendoData.accessType,
+        consortiumId: pendoData.consortiumId
+      }
+    });
+  </script>
+  <script type="text/javascript">
+    pageDataUtil.loadFooterPageDataObject();
+    pageData.page.loadTime = performance ? Math.round(performance.now()).toString() : '';
+    pageDataTracker.trackPageLoad();
+    siteCatPageUtil.afterPageLoad();
+  </script>
+  <script type="text/javascript">
+    window.NREUM || (NREUM = {});
+    NREUM.info = {
+      "errorBeacon": "bam.nr-data.net",
+      "licenseKey": "0268925da8",
+      "agent": "",
+      "beacon": "bam.nr-data.net",
+      "applicationTime": 68,
+      "applicationID": "31454162",
+      "transactionName": "MwAGYhBYX0oEABUNXQpKN0YQUF9eJgwPEEALCQhTEBZDXBYWDRBBSwQRQgpWQ3cEDgQXfg0WEBZKfnRtTA==",
+      "queueTime": 0
+    }
+  </script>
+</body>
+
+</html>
